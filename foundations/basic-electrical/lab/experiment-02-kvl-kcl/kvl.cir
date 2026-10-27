@@ -1,0 +1,15 @@
+KVL verification - two-loop network, sum of voltages round each loop
+* Node 2 is the common node A. Left loop: V1,R1,R2. Right loop: V2,R3,R2.
+V1 1 0 DC 10
+R1 1 2 100
+R2 2 0 47
+R3 3 2 150
+V2 3 0 DC 6
+.control
+op
+print v(1,2) v(2) v(3,2)
+.endc
+* v(1,2)=drop across R1, v(2)=drop across R2, v(3,2)=drop across R3
+* expected: V_R1=6.310  V_R2=3.690  V_R3=2.310
+* loop1: 6.310 + 3.690 = 10 = V1   loop2: 2.310 + 3.690 = 6 = V2
+.end

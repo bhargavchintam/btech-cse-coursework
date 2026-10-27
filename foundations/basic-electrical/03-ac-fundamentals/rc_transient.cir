@@ -1,0 +1,14 @@
+RC charging transient
+* series RC driven by a 0->5 V step, watch the capacitor charge
+* R=1k, C=1u  ->  tau = R*C = 1 ms
+V1 1 0 PWL(0 0 1u 5 20m 5)
+R1 1 2 1k
+C1 2 0 1u
+.tran 10u 5m
+.control
+run
+meas tran vc_1tau FIND v(2) AT=1m
+meas tran vc_5tau FIND v(2) AT=5m
+.endc
+* expected: tau = 1 ms; V(2) = 3.16 V at t=1*tau, 4.97 V at t=5*tau (Vfinal = 5 V)
+.end

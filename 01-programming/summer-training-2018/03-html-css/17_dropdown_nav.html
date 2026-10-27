@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>dropdown menu</title>
+  <style>
+    ul.nav {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      background-color: #333;
+      overflow: hidden;
+    }
+    ul.nav > li {
+      float: left;
+    }
+    ul.nav > li > a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      padding: 14px 20px;
+    }
+    ul.nav > li:hover {
+      background-color: #555;
+    }
+    .drop {
+      position: relative;
+    }
+    .drop ul {
+      display: none;
+      position: absolute;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      background-color: #444;
+      min-width: 150px;
+    }
+    .drop:hover ul {
+      display: block;
+    }
+    .drop ul li a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      padding: 12px 20px;
+    }
+    .drop ul li a:hover {
+      background-color: #666;
+    }
+  </style>
+</head>
+<body>
+  <ul class="nav">
+    <li><a href="#">Home</a></li>
+    <li class="drop">
+      <a href="#">Sports</a>
+      <ul>
+        <li><a href="#">Cricket</a></li>
+        <li><a href="#">Football</a></li>
+        <li><a href="#">Hockey</a></li>
+      </ul>
+    </li>
+    <li class="drop">
+      <a href="#">Movies</a>
+      <ul>
+        <li><a href="#">Action</a></li>
+        <li><a href="#">Comedy</a></li>
+      </ul>
+    </li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</body>
+</html>

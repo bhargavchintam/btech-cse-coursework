@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>dom basics</title>
+</head>
+<body>
+<h1 id="heading">hello dom</h1>
+<p id="para">this text will change when you click</p>
+<button onclick="changeText()">click me</button>
+<script>
+function changeText() {
+  document.getElementById("heading").innerHTML = "text changed!";
+  document.getElementById("para").innerHTML = "dom means document object model";
+}
+</script>
+</body>
+</html>

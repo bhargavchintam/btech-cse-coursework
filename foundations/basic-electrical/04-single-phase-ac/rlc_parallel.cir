@@ -1,0 +1,15 @@
+RLC parallel resonance sweep (ideal rejector)
+* R = 1k, L = 10m, C = 1u all in parallel, 1 A ac current source
+* at resonance the L and C currents cancel, impedance is MAX (= R), so V(1) peaks
+I1 0 1 AC 1
+R1 1 0 1k
+L1 1 0 10m
+C1 1 0 1u
+.ac dec 1000 100 20k
+.control
+run
+meas ac vmax   MAX  vm(1)
+meas ac v_at_f0 FIND vm(1) AT=1591.55
+.endc
+* expected: f0 = 1/(2*pi*sqrt(L*C)) = 1591.55 Hz ; at f0 Z = R so V(1) = 1000 V (curve peak)
+.end

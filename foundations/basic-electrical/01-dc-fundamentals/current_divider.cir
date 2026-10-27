@@ -1,0 +1,13 @@
+Current divider - source feeding two parallel resistors
+* I1 injects 9mA into node 1; it splits between R1 and R2
+I1 0 1 DC 9m
+R1 1 0 1k
+R2 1 0 2k
+* R1||R2 = 667 ohm, V(1) = 9mA * 667 = 6V
+* I_R1 = 9m * R2/(R1+R2) = 6mA, I_R2 = 3mA
+* expected: V(1)=6V, I(R1)=6mA, I(R2)=3mA
+.control
+op
+print v(1) @r1[i] @r2[i]
+.endc
+.end

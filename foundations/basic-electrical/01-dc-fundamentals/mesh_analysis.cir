@@ -1,0 +1,15 @@
+Two-mesh circuit with two voltage sources
+* left mesh: V1, R1, R3   right mesh: R3, R2, V2   R3 is shared
+V1 1 0 DC 10
+R1 1 2 1k
+R3 2 0 2k
+R2 2 3 1k
+V2 3 0 DC 5
+* mesh currents I1=4mA (through R1), I2=1mA (through R2)
+* shared branch I(R3)=I1-I2=3mA, node 2 = 6V
+* expected: V(2)=6V, I(R1)=4mA, I(R2)=1mA, I(R3)=3mA
+.control
+op
+print v(2) @r1[i] @r2[i] @r3[i]
+.endc
+.end

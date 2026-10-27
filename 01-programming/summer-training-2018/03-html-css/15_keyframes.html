@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>css animation</title>
+  <style>
+    .ball {
+      width: 60px;
+      height: 60px;
+      background-color: #e67e22;
+      border-radius: 50%;
+      position: relative;
+      animation: move 2s infinite alternate;
+    }
+    @keyframes move {
+      from { left: 0px; }
+      to { left: 300px; }
+    }
+  </style>
+</head>
+<body>
+  <h2>Moving Ball</h2>
+  <div class="ball"></div>
+</body>
+</html>

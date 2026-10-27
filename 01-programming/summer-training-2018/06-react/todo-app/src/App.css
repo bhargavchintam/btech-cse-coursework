@@ -1,0 +1,44 @@
+.app {
+  width: 400px;
+  margin: 40px auto;
+  background: #fff;
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+
+.app h1 {
+  text-align: center;
+  color: #333;
+}
+
+.addbox input {
+  width: 250px;
+  padding: 6px;
+}
+
+.addbox button {
+  padding: 6px 15px;
+  margin-left: 10px;
+  background: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.app ul {
+  list-style: none;
+  padding: 0;
+}
+
+.todo-item {
+  padding: 8px;
+  border-bottom: 1px solid #eee;
+}
+
+.todo-item button {
+  float: right;
+  background: #f44336;
+  color: white;
+  border: none;
+  cursor: pointer;
+}

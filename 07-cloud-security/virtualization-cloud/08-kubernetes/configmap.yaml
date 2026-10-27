@@ -1,0 +1,12 @@
+# configmap - app settings
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-config
+data:
+  APP_ENV: production
+  APP_COLOR: blue
+  index.html: |
+    <html>
+      <body><h1>served from configmap</h1></body>
+    </html>

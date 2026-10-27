@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>live preview</title>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
+
+    <script type="text/babel">
+        class LivePreview extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = { text: '' };
+                this.handleChange = this.handleChange.bind(this);
+            }
+
+            handleChange(e) {
+                this.setState({ text: e.target.value });
+            }
+
+            render() {
+                return (
+                    <div>
+                        <h2>Live Preview</h2>
+                        <input type="text" value={this.state.text} onChange={this.handleChange} placeholder="type here" />
+                        <h1>{this.state.text}</h1>
+                        <p>Length: {this.state.text.length}</p>
+                    </div>
+                );
+            }
+        }
+
+        ReactDOM.render(<LivePreview />, document.getElementById('root'));
+    </script>
+</body>
+</html>

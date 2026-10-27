@@ -1,0 +1,9 @@
+Ohm's law - I vs V sweep across a 1k resistor
+* sweep the source from 0 to 10 V and watch the current rise linearly
+V1 1 0 DC 0
+R1 1 0 1k
+.dc V1 0 10 1
+.print dc v(1) i(v1)
+* i(v1) is the source current, magnitude = V/R
+* expected: at V1=10 -> I(R1)=10mA, at V1=5 -> 5mA, slope 1mA/V
+.end

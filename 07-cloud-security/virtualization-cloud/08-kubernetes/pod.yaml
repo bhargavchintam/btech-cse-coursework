@@ -1,0 +1,13 @@
+# single nginx pod
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod
+  labels:
+    app: nginx
+spec:
+  containers:
+    - name: nginx
+      image: nginx:1.19
+      ports:
+        - containerPort: 80

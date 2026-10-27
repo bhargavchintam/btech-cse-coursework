@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>controlled form</title>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
+
+    <script type="text/babel">
+        class AdmissionForm extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = { name: '', branch: 'CSE' };
+                this.handleName = this.handleName.bind(this);
+                this.handleBranch = this.handleBranch.bind(this);
+                this.handleSubmit = this.handleSubmit.bind(this);
+            }
+
+            handleName(e) {
+                this.setState({ name: e.target.value });
+            }
+
+            handleBranch(e) {
+                this.setState({ branch: e.target.value });
+            }
+
+            handleSubmit(e) {
+                e.preventDefault();
+                alert('Submitted: ' + this.state.name + ' - ' + this.state.branch);
+            }
+
+            render() {
+                return (
+                    <form onSubmit={this.handleSubmit}>
+                        <h2>College Form</h2>
+                        <p>
+                            Name: <input type="text" value={this.state.name} onChange={this.handleName} />
+                        </p>
+                        <p>
+                            Branch:
+                            <select value={this.state.branch} onChange={this.handleBranch}>
+                                <option value="CSE">CSE</option>
+                                <option value="ECE">ECE</option>
+                                <option value="MECH">MECH</option>
+                            </select>
+                        </p>
+                        <button type="submit">Submit</button>
+                        <p>You typed: {this.state.name}</p>
+                    </form>
+                );
+            }
+        }
+
+        ReactDOM.render(<AdmissionForm />, document.getElementById('root'));
+    </script>
+</body>
+</html>

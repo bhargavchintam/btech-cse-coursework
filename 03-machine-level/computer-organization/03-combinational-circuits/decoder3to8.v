@@ -1,0 +1,11 @@
+// one output high per input code, en = 0 kills all outputs
+module decoder3to8(input [2:0] a, input en, output [7:0] y);
+    assign y[0] = en & ~a[2] & ~a[1] & ~a[0];
+    assign y[1] = en & ~a[2] & ~a[1] &  a[0];
+    assign y[2] = en & ~a[2] &  a[1] & ~a[0];
+    assign y[3] = en & ~a[2] &  a[1] &  a[0];
+    assign y[4] = en &  a[2] & ~a[1] & ~a[0];
+    assign y[5] = en &  a[2] & ~a[1] &  a[0];
+    assign y[6] = en &  a[2] &  a[1] & ~a[0];
+    assign y[7] = en &  a[2] &  a[1] &  a[0];
+endmodule

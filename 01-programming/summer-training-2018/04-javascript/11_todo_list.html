@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>todo list</title>
+<style>
+li {
+    margin: 5px;
+}
+</style>
+</head>
+<body>
+<h2>my todo list</h2>
+<input type="text" id="task">
+<button onclick="addTask()">add</button>
+<ul id="mylist"></ul>
+<script>
+function addTask() {
+    var task = document.getElementById("task").value;
+    if (task == "") {
+        alert("type something first");
+        return;
+    }
+    var li = document.createElement("li");
+    li.innerHTML = task + " ";
+    var btn = document.createElement("button");
+    btn.innerHTML = "x";
+    btn.onclick = function() {
+        li.remove();
+    };
+    li.appendChild(btn);
+    document.getElementById("mylist").appendChild(li);
+    document.getElementById("task").value = "";
+}
+</script>
+</body>
+</html>

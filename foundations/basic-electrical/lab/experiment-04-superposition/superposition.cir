@@ -1,0 +1,24 @@
+Superposition - current through load R2 from two independent sources
+* Response = current in R2. Run with both sources, then each alone.
+* A voltage source set to 0 V is a short, i.e. its internal resistance.
+V1 1 0 DC 12
+R1 1 2 100
+V2 3 0 DC 6
+R3 3 2 200
+R2 2 0 300
+.control
+op
+print v(2)/300
+alter V2 0
+op
+print v(2)/300
+alter V1 0
+alter V2 6
+op
+print v(2)/300
+.endc
+* print 1 = both sources     -> 27.27 mA
+* print 2 = V1 alone (V2=0)  -> 21.82 mA
+* print 3 = V2 alone (V1=0)  ->  5.45 mA
+* expected: 21.82 + 5.45 = 27.27 mA
+.end

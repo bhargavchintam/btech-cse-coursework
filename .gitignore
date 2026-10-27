@@ -1,0 +1,146 @@
+# One ignore file for the whole repo. Course-specific rules are scoped to their
+# folder so that, for example, the C course ignoring *.txt does not hide the
+# input files that the system software lab needs.
+
+# macOS, editors, tooling
+.DS_Store
+.idea/
+*.iml
+.vscode/
+.claude/
+
+# C and C++ build output (the Makefiles build into bin/)
+a.out
+*.o
+*.out
+*.exe
+bin/
+
+# Java
+*.class
+*.jar
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+venv/
+.venv/
+
+# Node
+node_modules/
+npm-debug.log
+
+# HDL simulation output (GHDL, Icarus Verilog)
+*.vvp
+*.vcd
+*.ghw
+work-obj*.cf
+e~*
+
+# Terraform, Vagrant, local secrets
+.terraform/
+*.tfstate
+*.tfstate.*
+.terraform.lock.hcl
+.vagrant/
+.env
+*.pem
+*.der
+
+# saved models (figures are committed, models are not)
+*.pkl
+*.joblib
+*.h5
+
+# logs and scratch files
+*.log
+*.tmp
+
+# --- 01-programming ---------------------------------------------------------
+# files written by the file-handling programs
+01-programming/c-programming/**/*.txt
+01-programming/c-programming/**/*.dat
+!01-programming/c-programming/**/README.txt
+01-programming/cpp-oop/**/*.txt
+01-programming/cpp-oop/**/*.dat
+!01-programming/cpp-oop/**/README.txt
+01-programming/java/**/*.txt
+01-programming/java/**/*.ser
+01-programming/python/09-files-exceptions/output.txt
+01-programming/summer-training-2018/**/*.txt
+01-programming/summer-training-2018/**/*.ser
+01-programming/summer-training-2018/**/package-lock.json
+
+# --- 02-core-cs --------------------------------------------------------------
+02-core-cs/data-structures/**/*.txt
+02-core-cs/data-structures/**/*.dat
+
+# --- 03-machine-level --------------------------------------------------------
+# SDCC build output and Keil files
+03-machine-level/microcontrollers-8051/**/*.ihx
+03-machine-level/microcontrollers-8051/**/*.hex
+03-machine-level/microcontrollers-8051/**/*.lst
+03-machine-level/microcontrollers-8051/**/*.map
+03-machine-level/microcontrollers-8051/**/*.mem
+03-machine-level/microcontrollers-8051/**/*.rel
+03-machine-level/microcontrollers-8051/**/*.sym
+03-machine-level/microcontrollers-8051/**/*.lk
+03-machine-level/microcontrollers-8051/**/*.rst
+03-machine-level/microcontrollers-8051/**/*.adb
+03-machine-level/microcontrollers-8051/**/*.cdb
+03-machine-level/microcontrollers-8051/**/*.obj
+03-machine-level/microcontrollers-8051/**/*.lnp
+03-machine-level/microcontrollers-8051/**/*.plg
+03-machine-level/microcontrollers-8051/**/*.opt
+03-machine-level/microcontrollers-8051/**/*.bak
+# flex / yacc generated sources and files the lab programs write
+03-machine-level/system-software/**/lex.yy.c
+03-machine-level/system-software/**/y.tab.c
+03-machine-level/system-software/**/y.tab.h
+03-machine-level/system-software/**/*.yy.c
+03-machine-level/system-software/lab/c/intermediate.txt
+03-machine-level/system-software/lab/c/symtab.txt
+03-machine-level/system-software/lab/c/output.txt
+03-machine-level/system-software/lab/c/expanded.txt
+
+# --- 04-os-networks ----------------------------------------------------------
+04-os-networks/operating-systems/02-process-management/fork_basic
+04-os-networks/operating-systems/**/main
+04-os-networks/operating-systems/**/myfifo
+04-os-networks/operating-systems/**/*.fifo
+# files the socket and file-transfer programs write at run time
+04-os-networks/computer-networks/**/recv_*
+04-os-networks/computer-networks/**/received.*
+04-os-networks/computer-networks/**/got.*
+
+# --- 05-data -----------------------------------------------------------------
+05-data/dbms/**/*.db
+05-data/dbms/**/*.sqlite
+05-data/dbms/**/*.dump
+05-data/dbms/**/*.sql.bak
+05-data/dbms/**/dump.sql
+05-data/data-mining/**/*.png
+05-data/data-mining/**/*.pdf
+05-data/data-mining/**/out_*.csv
+05-data/big-data-hadoop/**/metastore_db/
+05-data/big-data-hadoop/**/derby.log
+05-data/big-data-hadoop/**/spark-warehouse/
+05-data/big-data-hadoop/**/output/
+05-data/big-data-hadoop/**/_SUCCESS
+
+# --- 07-cloud-security -------------------------------------------------------
+07-cloud-security/virtualization-cloud/**/credentials
+07-cloud-security/cloud-computing-lab/**/*.png
+07-cloud-security/cryptography/**/main
+07-cloud-security/cryptography/**/key.bin
+
+# --- foundations -------------------------------------------------------------
+# ngspice output and Octave plots
+foundations/basic-electrical/**/*.raw
+foundations/basic-electrical/**/*.png
+foundations/basic-electrical/**/*.eps
+foundations/basic-electrical/**/*.ps
+foundations/basic-electrical/**/octave-workspace

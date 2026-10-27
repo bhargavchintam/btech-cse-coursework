@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>positioning</title>
+    <style>
+        .parent {
+            position: relative;
+            width: 400px;
+            height: 250px;
+            background-color: lightgray;
+            margin-bottom: 20px;
+        }
+        .child {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 120px;
+            height: 60px;
+            background-color: tomato;
+        }
+        .moved {
+            position: relative;
+            left: 50px;
+            top: 10px;
+            width: 200px;
+            background-color: lightgreen;
+        }
+    </style>
+</head>
+<body>
+    <h2>Positioning</h2>
+    <!-- absolute is with respect to parent if parent is relative -->
+    <div class="parent">
+        parent box
+        <div class="child">child box</div>
+    </div>
+    <div class="moved">this box moved 50px right using relative</div>
+</body>
+</html>

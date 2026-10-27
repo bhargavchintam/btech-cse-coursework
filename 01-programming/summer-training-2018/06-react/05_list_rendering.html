@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>list rendering</title>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
+
+  <script type="text/babel">
+    // key is needed or react gives warning
+    const movies = [
+      { id: 1, title: 'Baahubali 2', year: 2017 },
+      { id: 2, title: 'KGF', year: 2018 },
+      { id: 3, title: 'Rangasthalam', year: 2018 },
+      { id: 4, title: 'Avengers Infinity War', year: 2018 }
+    ];
+
+    function MovieList(props) {
+      const items = props.movies.map((m) =>
+        <li key={m.id}>{m.title} ({m.year})</li>
+      );
+      return <ul>{items}</ul>;
+    }
+
+    ReactDOM.render(
+      <div>
+        <h1>My Movie List</h1>
+        <MovieList movies={movies} />
+      </div>,
+      document.getElementById('root')
+    );
+  </script>
+</body>
+</html>

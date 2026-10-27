@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>tabs</title>
+<style>
+#tabs {
+  width: 400px;
+  margin: 30px auto;
+}
+.tab {
+  padding: 10px 16px;
+  background: #eee;
+  border: none;
+  cursor: pointer;
+}
+.tab.active {
+  background: #4caf50;
+  color: white;
+}
+.content {
+  border: 1px solid #eee;
+  padding: 15px;
+  display: none;
+}
+.content.show {
+  display: block;
+}
+</style>
+</head>
+<body>
+<div id="tabs">
+<button class="tab active" onclick="open_tab(0)">home</button>
+<button class="tab" onclick="open_tab(1)">about</button>
+<button class="tab" onclick="open_tab(2)">contact</button>
+<div class="content show">welcome to my home tab.</div>
+<div class="content">this is the about section. i am a second year student.</div>
+<div class="content">email me at bhargav@example.com</div>
+</div>
+<script>
+function open_tab(n) {
+  var tabs = document.getElementsByClassName("tab");
+  var content = document.getElementsByClassName("content");
+  for (var i = 0; i < tabs.length; i++) {
+    tabs[i].className = "tab";
+    content[i].className = "content";
+  }
+  tabs[n].className = "tab active";
+  content[n].className = "content show";
+}
+</script>
+</body>
+</html>

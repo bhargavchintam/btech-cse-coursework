@@ -1,0 +1,25 @@
+ideal transformer from coupled inductors
+* Two inductors coupled by K model a transformer. Turns ratio N2/N1 = sqrt(L2/L1).
+* L1 = 100 H, L2 = 1 H  ->  sqrt(1/100) = 0.1, a 10:1 step-down.
+* Big inductances so the magnetising reactance swamps the load at 50 Hz (near ideal),
+* k = 0.9999 for tight coupling.
+* .tran with uic skips the dc operating point (coupled L's make it ill-conditioned).
+
+* primary: 325.27 V peak = 230 V rms, 50 Hz
+Vp 1 0 SIN(0 325.27 50)
+L1 1 0 100
+L2 2 0 1
+K1 L1 L2 0.9999
+* light load, only there to give node 2 a path; too big to load the transformer
+Rload 2 0 1meg
+
+.tran 0.05m 60m uic
+.control
+run
+let vsec = v(2)
+meas tran vp_rms RMS v(1)
+meas tran vs_rms RMS vsec
+.endc
+
+* expected: primary v(1) = 230 V rms, secondary v(2) = 23 V rms (10:1 step down)
+.end

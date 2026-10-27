@@ -1,0 +1,11 @@
+Ohm's Law - current through a 470 ohm resistor vs applied voltage
+* R1 is the resistor under test. Vam is a 0 V source used as an ammeter
+* so the printed current has the sign of the resistor current, not the source.
+V1 1 0 DC 0
+R1 1 2 470
+Vam 2 0 DC 0
+.dc V1 0 10 2
+.print dc i(Vam)
+* expected: I = V/R, slope 1/R = 2.128 mA/V
+* expected: V=2 -> 4.26m, V=6 -> 12.77m, V=10 -> 21.28m
+.end

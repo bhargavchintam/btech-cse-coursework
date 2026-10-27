@@ -1,0 +1,16 @@
+RLC series resonance sweep
+* R = 10, L = 10m, C = 1u, 1 V ac source
+* R sits at the ground end; v(3) = I*R, so it peaks when the current peaks
+* at resonance XL = XC, |Z| = R = 10 ohm, current peaks at V/R = 0.1 A (v(3) = 1 V)
+V1 1 0 AC 1
+L1 1 2 10m
+C1 2 3 1u
+R1 3 0 10
+.ac dec 1000 100 20k
+.control
+run
+meas ac vmax    MAX  vm(3)
+meas ac v_at_f0 FIND vm(3) AT=1591.55
+.endc
+* expected: f0 = 1/(2*pi*sqrt(L*C)) = 1591.55 Hz ; v(3) = 1 V (I = 0.1 A) at f0, Q = 10, BW = 159.15 Hz
+.end

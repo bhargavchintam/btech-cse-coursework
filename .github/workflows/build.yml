@@ -1,0 +1,72 @@
+name: build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  make:
+    name: make (C and C++ courses)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+      # glibc only defines M_PI under -std=c99 when a feature macro is set (macOS defines it anyway)
+      - name: 01-programming/c-programming
+        run: make -C 01-programming/c-programming -j"$(nproc)" CFLAGS="-std=c99 -Wall -D_DEFAULT_SOURCE"
+      - name: 02-core-cs/data-structures
+        run: make -C 02-core-cs/data-structures -j"$(nproc)"
+      - name: 02-core-cs/algorithm-design
+        run: make -C 02-core-cs/algorithm-design -j"$(nproc)"
+      - name: 03-machine-level/computer-organization
+        run: make -C 03-machine-level/computer-organization -j"$(nproc)"
+      - name: 04-os-networks/computer-networks
+        run: make -C 04-os-networks/computer-networks -j"$(nproc)"
+
+  javac:
+    name: javac (Java folders)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: "17"
+      # One file at a time from its unit folder, the way the READMEs compile them:
+      # some folders have two files that each define a small helper class with the same name.
+      # big-data-hadoop is left out because its MapReduce jobs need the Hadoop jars.
+      - name: javac every file
+        run: |
+          for course in 01-programming/java 01-programming/summer-training-2018 07-cloud-security/cloud-computing-lab; do
+            for f in $(find "$course" -name '*.java' | sort); do
+              unit=$(echo "$f" | cut -d/ -f1-3)
+              (cd "$unit" && javac -nowarn -encoding UTF-8 -d "$RUNNER_TEMP/javac/$f" "${f#"$unit"/}")
+            done
+          done
+
+  python:
+    name: python -m compileall
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - name: compileall
+        run: >-
+          python -m compileall -q
+          01-programming/python
+          01-programming/summer-training-2018
+          04-os-networks/computer-networks
+          05-data/data-mining
+          05-data/big-data-hadoop
+          06-ml/machine-learning
+          07-cloud-security/virtualization-cloud
+          07-cloud-security/cloud-computing-lab

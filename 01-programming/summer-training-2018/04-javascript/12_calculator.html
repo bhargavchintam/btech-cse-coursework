@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>calculator</title>
+<style>
+#calc {
+  width: 210px;
+  border: 2px solid gray;
+  padding: 10px;
+  margin: 40px auto;
+}
+#screen {
+  width: 195px;
+  height: 30px;
+  font-size: 18px;
+  text-align: right;
+  margin-bottom: 5px;
+}
+#calc button {
+  width: 45px;
+  height: 38px;
+  font-size: 16px;
+  margin: 1px;
+}
+</style>
+</head>
+<body>
+<div id="calc">
+<input type="text" id="screen" readonly>
+<br>
+<button onclick="press('7')">7</button>
+<button onclick="press('8')">8</button>
+<button onclick="press('9')">9</button>
+<button onclick="press('/')">/</button>
+<br>
+<button onclick="press('4')">4</button>
+<button onclick="press('5')">5</button>
+<button onclick="press('6')">6</button>
+<button onclick="press('*')">*</button>
+<br>
+<button onclick="press('1')">1</button>
+<button onclick="press('2')">2</button>
+<button onclick="press('3')">3</button>
+<button onclick="press('-')">-</button>
+<br>
+<button onclick="press('0')">0</button>
+<button onclick="press('.')">.</button>
+<button onclick="clr()">C</button>
+<button onclick="press('+')">+</button>
+<br>
+<button onclick="calc()" style="width: 186px">=</button>
+</div>
+<script>
+function press(val) {
+  document.getElementById("screen").value += val;
+}
+function clr() {
+  document.getElementById("screen").value = "";
+}
+function calc() {
+  var exp = document.getElementById("screen").value;
+  document.getElementById("screen").value = eval(exp);
+}
+</script>
+</body>
+</html>

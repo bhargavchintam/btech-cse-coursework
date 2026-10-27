@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>digital clock</title>
+<style>
+#clock {
+  width: 300px;
+  margin: 60px auto;
+  padding: 20px;
+  background: black;
+  color: lime;
+  font-family: monospace;
+  font-size: 40px;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+<div id="clock">00:00:00</div>
+<script>
+function showTime() {
+  var now = new Date();
+  var h = now.getHours();
+  var m = now.getMinutes();
+  var s = now.getSeconds();
+  if (h < 10) h = "0" + h;
+  if (m < 10) m = "0" + m;
+  if (s < 10) s = "0" + s;
+  document.getElementById("clock").innerHTML = h + ":" + m + ":" + s;
+}
+setInterval(showTime, 1000);
+showTime();
+</script>
+</body>
+</html>

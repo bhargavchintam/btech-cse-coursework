@@ -1,0 +1,21 @@
+Thevenin's theorem - open-circuit Vth and equivalence check
+* cluster A: source network with A-B open, node 2 reads Vth
+V1 1 0 DC 12
+R1 1 2 3k
+R2 2 0 6k
+* cluster B: same network loaded with RL = 2k at node 12
+V1b 11 0 DC 12
+R1b 11 12 3k
+R2b 12 0 6k
+RLb 12 0 2k
+* cluster C: Thevenin equivalent (Vth=8, Rth=2k) with the same RL at node 22
+Vth 21 0 DC 8
+Rth 21 22 2k
+RLc 22 0 2k
+* Rth = R1||R2 = 2k, Vth = 12*6k/9k = 8V
+* expected: V(2)=8V (=Vth); loaded original V(12)=4V equals equivalent V(22)=4V
+.control
+op
+print v(2) v(12) v(22)
+.endc
+.end

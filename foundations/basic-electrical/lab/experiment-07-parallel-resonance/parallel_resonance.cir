@@ -1,0 +1,19 @@
+Parallel Resonance Tank
+* Coil (R in series with L) in parallel with C, driven by a 10 V variable-freq source.
+* Resonance = unity power factor: imag(i(V1)) = 0. Coil R pulls fr below 1/(2pi*sqrt(LC)).
+V1 1 0 AC 10
+R1 1 2 10
+L1 2 0 10m
+C1 1 0 1u
+.control
+ac lin 8001 1400 1800
+let iim  = imag(i(V1))
+let imag = abs(i(V1))
+let zin  = abs(v(1)/i(V1))
+meas ac fr FIND frequency WHEN iim=0
+meas ac zr FIND zin       WHEN iim=0
+meas ac ir FIND imag      WHEN iim=0
+.endc
+.end
+* expected: fr = 1583.6 Hz (ideal LC gives 1591.55), zr = L/RC = 1000 ohm, ir = 10 mA
+* (the current-magnitude minimum lies a few Hz higher, near the ideal LC value)

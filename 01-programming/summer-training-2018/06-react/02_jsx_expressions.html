@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jsx practice</title>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
+
+    <script type="text/babel">
+        const name = 'Bhargava';
+        const a = 10;
+        const b = 25;
+        const today = new Date();
+
+        const element = (
+            <div>
+                <h2>My name is {name}</h2>
+                <p>{a} + {b} = {a + b}</p>
+                <p>Today is {today.toDateString()}</p>
+                <p>{a > b ? 'a is big' : 'b is big'}</p>
+            </div>
+        );
+
+        ReactDOM.render(element, document.getElementById('root'));
+    </script>
+</body>
+</html>

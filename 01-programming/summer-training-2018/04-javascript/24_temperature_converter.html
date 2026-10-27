@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>temperature converter</title>
+<style>
+#box {
+  width: 300px;
+  margin: 40px auto;
+  padding: 20px;
+  border: 2px solid gray;
+  text-align: center;
+}
+input {
+  padding: 5px;
+  width: 120px;
+}
+#out {
+  margin-top: 15px;
+  font-size: 18px;
+}
+</style>
+</head>
+<body>
+<div id="box">
+<h2>celsius to fahrenheit</h2>
+celsius: <input type="text" id="temp">
+<br><br>
+<button onclick="toF()">to fahrenheit</button>
+<button onclick="toC()">to celsius</button>
+<div id="out"></div>
+</div>
+<script>
+function toF() {
+  var c = parseFloat(document.getElementById("temp").value);
+  if (isNaN(c)) {
+    document.getElementById("out").innerHTML = "enter a number";
+    return;
+  }
+  var f = c * 9 / 5 + 32;
+  document.getElementById("out").innerHTML = c + " C = " + f + " F";
+}
+function toC() {
+  var f = parseFloat(document.getElementById("temp").value);
+  if (isNaN(f)) {
+    document.getElementById("out").innerHTML = "enter a number";
+    return;
+  }
+  var c = (f - 32) * 5 / 9;
+  document.getElementById("out").innerHTML = f + " F = " + c + " C";
+}
+</script>
+</body>
+</html>

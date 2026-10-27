@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>card hover</title>
+  <style>
+    body { font-family: Arial; background-color: #eee; }
+    .cards { display: flex; justify-content: center; }
+    .card {
+      width: 200px;
+      background-color: white;
+      margin: 15px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 2px 4px #aaa;
+      transition: box-shadow 0.3s, transform 0.3s;
+    }
+    .card:hover {
+      box-shadow: 0 8px 16px #888;
+      transform: translateY(-8px);
+    }
+    .card h3 { color: #2c3e50; }
+  </style>
+</head>
+<body>
+  <h2 style="text-align:center;">Favourite Players</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>Virat Kohli</h3>
+      <p>Batsman</p>
+    </div>
+    <div class="card">
+      <h3>MS Dhoni</h3>
+      <p>Wicket Keeper</p>
+    </div>
+    <div class="card">
+      <h3>Bumrah</h3>
+      <p>Bowler</p>
+    </div>
+  </div>
+</body>
+</html>

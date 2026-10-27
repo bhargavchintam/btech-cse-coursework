@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>image slider</title>
+<style>
+#slider {
+  width: 400px;
+  height: 250px;
+  margin: 40px auto;
+  text-align: center;
+}
+#slide {
+  width: 400px;
+  height: 200px;
+  line-height: 200px;
+  color: white;
+  font-size: 26px;
+}
+button {
+  margin: 8px;
+  padding: 6px 14px;
+}
+</style>
+</head>
+<body>
+<div id="slider">
+<div id="slide">slide 1</div>
+<button onclick="prev()">prev</button>
+<button onclick="next()">next</button>
+</div>
+<script>
+var colors = ["tomato", "cornflowerblue", "mediumseagreen", "orange"];
+var i = 0;
+
+function show() {
+  var slide = document.getElementById("slide");
+  slide.style.background = colors[i];
+  slide.innerHTML = "slide " + (i + 1);
+}
+
+function next() {
+  i = (i + 1) % colors.length;
+  show();
+}
+
+function prev() {
+  i = (i - 1 + colors.length) % colors.length;
+  show();
+}
+
+setInterval(next, 2000);
+show();
+</script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>accordion</title>
+<style>
+#acc {
+  width: 400px;
+  margin: 30px auto;
+}
+.head {
+  background: #ddd;
+  padding: 10px;
+  cursor: pointer;
+  margin-top: 4px;
+}
+.body {
+  padding: 10px;
+  border: 1px solid #ddd;
+  display: none;
+}
+</style>
+</head>
+<body>
+<div id="acc">
+<h2>faq</h2>
+<div class="head" onclick="toggle(0)">what is javascript</div>
+<div class="body">javascript is a language that runs in the browser.</div>
+<div class="head" onclick="toggle(1)">what is html</div>
+<div class="body">html is used to make the structure of a web page.</div>
+<div class="head" onclick="toggle(2)">what is css</div>
+<div class="body">css is used to add style and colour to the page.</div>
+</div>
+<script>
+function toggle(n) {
+  var bodies = document.getElementsByClassName("body");
+  var b = bodies[n];
+  if (b.style.display == "block") {
+    b.style.display = "none";
+  } else {
+    b.style.display = "block";
+  }
+}
+</script>
+</body>
+</html>

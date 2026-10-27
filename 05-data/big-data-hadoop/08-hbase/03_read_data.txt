@@ -1,0 +1,34 @@
+# hbase shell - read data with get and scan
+
+# get whole row
+get 'emp', '1'
+
+# get one column family
+get 'emp', '1', 'personal'
+
+# get one column
+get 'emp', '1', 'professional:salary'
+
+# get multiple versions of a cell (salary was updated)
+get 'emp', '1', {COLUMN => 'professional:salary', VERSIONS => 3}
+
+# scan full table
+scan 'emp'
+
+# scan only one column family
+scan 'emp', {COLUMNS => 'personal'}
+
+# scan specific columns
+scan 'emp', {COLUMNS => ['personal:name', 'professional:dept']}
+
+# limit number of rows
+scan 'emp', {LIMIT => 2}
+
+# scan a row key range (startrow inclusive, stoprow exclusive)
+scan 'emp', {STARTROW => '1', STOPROW => '3'}
+
+# scan with a value filter
+scan 'emp', {FILTER => "ValueFilter(=, 'binary:sales')"}
+
+# scan rows whose key starts with prefix
+scan 'emp', {FILTER => "PrefixFilter('1')"}

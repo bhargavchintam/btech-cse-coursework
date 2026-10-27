@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>toggle show hide</title>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
+
+    <script type="text/babel">
+        class Toggle extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = { show: true };
+                this.handleClick = this.handleClick.bind(this);
+            }
+
+            handleClick() {
+                this.setState({ show: !this.state.show });
+            }
+
+            render() {
+                return (
+                    <div>
+                        <h2>Show and Hide</h2>
+                        <button onClick={this.handleClick}>
+                            {this.state.show ? 'Hide' : 'Show'}
+                        </button>
+                        {this.state.show && <p>This is some secret text.</p>}
+                    </div>
+                );
+            }
+        }
+
+        ReactDOM.render(<Toggle />, document.getElementById('root'));
+    </script>
+</body>
+</html>

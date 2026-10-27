@@ -1,0 +1,11 @@
+Voltage divider - two resistors in series
+V1 1 0 DC 12
+R1 1 2 1k
+R2 2 0 2k
+* Vout = 12 * R2/(R1+R2) = 12 * 2k/3k
+* expected: V(2) = 8 V
+.control
+op
+print v(2)
+.endc
+.end

@@ -1,0 +1,19 @@
+Series RLC Resonance
+* R-L-C in series across a 10 V variable-frequency source, current = i(V1)
+* f0 = 1/(2*pi*sqrt(LC)) = 1591.55 Hz, Q = (1/R)sqrt(L/C) = 10
+V1 1 0 AC 10
+R1 1 2 10
+L1 2 3 10m
+C1 3 0 1u
+.control
+ac lin 2001 1000 2200
+let imag = abs(i(V1))
+meas ac ipk MAX imag
+meas ac fhi WHEN imag=0.70710678 FALL=1
+meas ac flo WHEN imag=0.70710678 RISE=1
+let bw = fhi - flo
+let qfac = 1591.549 / bw
+print bw qfac
+.endc
+.end
+* expected: ipk = 1.0 A at 1591.6 Hz, flo = 1513.96, fhi = 1673.12, bw = 159.16, qfac = 10

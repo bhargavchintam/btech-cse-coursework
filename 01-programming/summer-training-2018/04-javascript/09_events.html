@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>events practice</title>
+<style>
+#box {
+    width: 150px;
+    height: 150px;
+    background: lightblue;
+    text-align: center;
+    line-height: 150px;
+}
+</style>
+</head>
+<body>
+<button onclick="alert('button clicked')">onclick demo</button>
+<div id="box" onmouseover="this.style.background='orange'" onmouseout="this.style.background='lightblue'">hover me</div>
+<button id="btn2">addEventListener demo</button>
+<p id="out"></p>
+<script>
+document.getElementById("btn2").addEventListener("click", function() {
+    document.getElementById("out").innerHTML = "clicked using addEventListener";
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>registration form</title>
+  <style>
+    body { font-family: Arial; background-color: #f0f0f0; }
+    .form1 {
+      width: 350px;
+      margin: 30px auto;
+      background-color: white;
+      padding: 20px;
+      border: 1px solid #ccc;
+    }
+    .form1 h2 { text-align: center; }
+    .form1 input, .form1 select {
+      width: 100%;
+      padding: 8px;
+      margin: 6px 0 12px 0;
+      box-sizing: border-box;
+    }
+    .btn {
+      background-color: #27ae60;
+      color: white;
+      border: none;
+      padding: 10px;
+      width: 100%;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="form1">
+    <h2>Create Account</h2>
+    <form>
+      <label>Username</label>
+      <input type="text" name="user">
+      <label>Email</label>
+      <input type="email" name="email">
+      <label>Password</label>
+      <input type="password" name="pass">
+      <label>Confirm Password</label>
+      <input type="password" name="pass2">
+      <label>Date of Birth</label>
+      <input type="date" name="dob">
+      <label>Country</label>
+      <select name="country">
+        <option>India</option>
+        <option>Australia</option>
+        <option>England</option>
+      </select>
+      <input type="checkbox" name="terms"> I agree to the terms<br><br>
+      <button type="submit" class="btn">Register</button>
+    </form>
+  </div>
+</body>
+</html>

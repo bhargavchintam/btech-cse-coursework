@@ -1,0 +1,22 @@
+h1, h2 {
+  color: brown;
+}
+
+p {
+  font-family: Arial;
+}
+
+.red {
+  color: red;
+}
+
+#special {
+  color: white;
+  background-color: black;
+  padding: 5px;
+}
+
+a:hover {
+  color: green;
+  font-size: 20px;
+}

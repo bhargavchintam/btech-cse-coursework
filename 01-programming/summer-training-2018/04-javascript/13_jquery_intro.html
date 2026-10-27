@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jquery intro</title>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+<h2 id="head1">learning jquery</h2>
+<p class="para">jquery makes js easy</p>
+<p class="para">write less do more</p>
+<button id="hidebtn">hide</button>
+<button id="showbtn">show</button>
+<button id="togglebtn">toggle</button>
+<button id="colorbtn">change color</button>
+<script>
+$(document).ready(function() {
+  $("#hidebtn").click(function() {
+    $(".para").hide();
+  });
+  $("#showbtn").click(function() {
+    $(".para").show();
+  });
+  $("#togglebtn").click(function() {
+    $(".para").toggle();
+  });
+  $("#colorbtn").click(function() {
+    $("#head1").css("color", "red");
+  });
+});
+</script>
+</body>
+</html>

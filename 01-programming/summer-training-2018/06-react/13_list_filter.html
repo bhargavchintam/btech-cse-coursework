@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>list filter</title>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
+
+  <script type="text/babel">
+    class NameFilter extends React.Component {
+      constructor(props) {
+        super(props);
+        this.state = { query: '' };
+        this.handleChange = this.handleChange.bind(this);
+      }
+
+      handleChange(e) {
+        this.setState({ query: e.target.value });
+      }
+
+      render() {
+        const names = ['Bhargava', 'Kiran', 'Sneha', 'Ravi', 'Anita', 'Karthik'];
+        const q = this.state.query.toLowerCase();
+        const filtered = names.filter((n) => n.toLowerCase().indexOf(q) !== -1);
+        const list = filtered.map((n, i) => <li key={i}>{n}</li>);
+        return (
+          <div>
+            <h2>Search Names</h2>
+            <input type="text" value={this.state.query} onChange={this.handleChange} placeholder="search" />
+            <ul>{list}</ul>
+          </div>
+        );
+      }
+    }
+
+    ReactDOM.render(<NameFilter />, document.getElementById('root'));
+  </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+# hbase shell - insert data using put
+# put 'table','rowkey','family:qualifier','value'
+
+# row 1
+put 'emp', '1', 'personal:name', 'raj'
+put 'emp', '1', 'personal:city', 'bangalore'
+put 'emp', '1', 'professional:dept', 'sales'
+put 'emp', '1', 'professional:salary', '30000'
+
+# row 2
+put 'emp', '2', 'personal:name', 'anu'
+put 'emp', '2', 'personal:city', 'mysore'
+put 'emp', '2', 'professional:dept', 'it'
+put 'emp', '2', 'professional:salary', '45000'
+
+# row 3
+put 'emp', '3', 'personal:name', 'kiran'
+put 'emp', '3', 'professional:dept', 'hr'
+
+# update = put again with same rowkey+column (new version by timestamp)
+put 'emp', '1', 'professional:salary', '35000'
+
+# number of rows
+count 'emp'

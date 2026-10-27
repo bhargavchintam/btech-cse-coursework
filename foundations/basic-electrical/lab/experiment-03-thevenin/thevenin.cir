@@ -1,0 +1,21 @@
+Thevenin verification - bridge network feeding a 470 ohm load
+* Original bridge: source Vs across two dividers, load RL between the midpoints.
+Vs 1 0 DC 12
+R1 1 2 100
+R2 2 0 200
+R3 1 3 300
+R4 3 0 100
+RL 2 3 470
+* Thevenin equivalent on separate nodes: Vth in series with Rth into the same load.
+Vth 4 0 DC 5
+Rth 4 5 141.6667
+RLe 5 0 470
+.control
+op
+print (v(2)-v(3))/470
+print v(5)/470
+.endc
+* first print = load current through the original network
+* second print = load current through the Thevenin equivalent
+* expected: both = 8.174 mA  (Vth = 5 V, Rth = 141.67 ohm)
+.end

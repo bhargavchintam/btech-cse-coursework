@@ -1,0 +1,8 @@
+// 4-bit Johnson (twisted ring) counter: complement of LSB fed back to MSB
+module johnson_counter(input clk, input rst, output reg [3:0] q);
+    always @(posedge clk or posedge rst)
+        if (rst)
+            q <= 4'b0000;
+        else
+            q <= {~q[0], q[3:1]};
+endmodule

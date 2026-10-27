@@ -1,0 +1,37 @@
+# hbase shell - manage table (alter, disable, drop, count, delete)
+
+# count rows
+count 'emp'
+
+# delete one cell
+delete 'emp', '3', 'professional:dept'
+
+# delete whole row
+deleteall 'emp', '3'
+
+# ALTER - table must be disabled for structural change
+disable 'emp'
+
+# add a new column family
+alter 'emp', {NAME => 'contact'}
+
+# change max versions on a family
+alter 'emp', {NAME => 'professional', VERSIONS => 5}
+
+# delete a column family
+alter 'emp', {NAME => 'contact', METHOD => 'delete'}
+
+# re-enable
+enable 'emp'
+is_enabled 'emp'
+
+# empty the table but keep schema
+truncate 'emp'
+
+# DROP - must disable first
+disable 'emp'
+drop 'emp'
+
+# confirm gone
+exists 'emp'
+list

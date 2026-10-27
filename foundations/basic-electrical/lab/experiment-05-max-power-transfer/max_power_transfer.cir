@@ -1,0 +1,16 @@
+Maximum Power Transfer
+* Thevenin source Vth = 10 V behind Rth = 100 ohm, load RL swept 20..200 ohm
+V1 1 0 DC 10
+Rth 1 2 100
+RL  2 0 100
+.control
+dc RL 20 200 20
+let iL  = -v1#branch
+let pL  = v(2)*iL
+let eff = (v(2)/10)*100
+print iL pL eff
+* pL is maximum where res-sweep = 100 (= Rth), eff there = 50 %
+meas dc pmax MAX pL
+.endc
+.end
+* expected: pL peaks at RL = 100 ohm, pL = 0.25 W, eff = 50 %

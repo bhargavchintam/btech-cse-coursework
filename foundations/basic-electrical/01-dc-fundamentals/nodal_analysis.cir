@@ -1,0 +1,14 @@
+Two-node circuit solved by nodal analysis
+* two current sources, three equal resistors
+I1 0 1 DC 8m
+I2 0 2 DC 2m
+R1 1 0 2k
+R2 2 0 2k
+R3 1 2 2k
+* node eqns: 2V1 - V2 = 16, -V1 + 2V2 = 4
+* expected: V(1)=12V, V(2)=8V
+.control
+op
+print v(1) v(2)
+.endc
+.end

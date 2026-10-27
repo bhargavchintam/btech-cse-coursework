@@ -1,0 +1,13 @@
+{
+  "name": "contact-book",
+  "version": "1.0.0",
+  "description": "summer camp mini project - contact book",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.16.3",
+    "body-parser": "^1.18.3"
+  }
+}

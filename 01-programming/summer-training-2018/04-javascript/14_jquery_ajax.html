@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jquery ajax</title>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+<h2>students list from json</h2>
+<button id="loadbtn">load data</button>
+<ul id="list1"></ul>
+<script>
+$(document).ready(function() {
+  $("#loadbtn").click(function() {
+    $.getJSON("demo.json", function(data) {
+      $("#list1").html("");
+      $.each(data.students, function(i, s) {
+        $("#list1").append("<li>" + s.name + " - " + s.course + "</li>");
+      });
+    });
+  });
+});
+</script>
+</body>
+</html>

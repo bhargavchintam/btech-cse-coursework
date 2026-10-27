@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>props children</title>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
+
+  <script type="text/babel">
+    function Card(props) {
+      return (
+        <div style={{ border: '1px solid black', padding: '10px', margin: '5px' }}>
+          {props.children}
+        </div>
+      );
+    }
+
+    const app = (
+      <div>
+        <h1>Cards</h1>
+        <Card>
+          <h3>Cricket</h3>
+          <p>India won the match</p>
+        </Card>
+        <Card>
+          <h3>Movie</h3>
+          <p>KGF was superb</p>
+        </Card>
+      </div>
+    );
+
+    ReactDOM.render(app, document.getElementById('root'));
+  </script>
+</body>
+</html>

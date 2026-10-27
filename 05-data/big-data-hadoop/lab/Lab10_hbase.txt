@@ -1,0 +1,33 @@
+# hbase crud on an emp table (run inside hbase shell)
+
+create 'emp', 'personal', 'professional'
+
+list
+
+# insert (create) rows
+put 'emp', '1', 'personal:name', 'raj'
+put 'emp', '1', 'personal:city', 'bangalore'
+put 'emp', '1', 'professional:dept', 'cse'
+put 'emp', '1', 'professional:sal', '8000'
+
+put 'emp', '2', 'personal:name', 'anil'
+put 'emp', '2', 'professional:dept', 'ece'
+put 'emp', '2', 'professional:sal', '6000'
+
+# read
+get 'emp', '1'
+scan 'emp'
+
+# update - put on an existing rowkey/column overwrites the value
+put 'emp', '1', 'professional:sal', '9500'
+get 'emp', '1', 'professional:sal'
+
+# delete one cell, then a whole row
+delete 'emp', '2', 'professional:sal'
+deleteall 'emp', '2'
+
+count 'emp'
+
+# drop the table
+disable 'emp'
+drop 'emp'

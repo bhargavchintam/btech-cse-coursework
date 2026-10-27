@@ -1,0 +1,18 @@
+Norton's theorem - short-circuit current In and equivalence check
+* cluster A: A-B shorted through 0V ammeter Vsc; its current is In
+V1 1 0 DC 12
+R1 1 2 3k
+R2 2 0 6k
+Vsc 2 0 DC 0
+* cluster B: Norton equivalent (In=4mA, Rn=2k) loaded with RL=2k at node 21
+In 0 21 DC 4m
+Rn 21 0 2k
+RLc 21 0 2k
+* shorting node 2 shorts R2, so In = V1/R1 = 12/3k = 4mA; Rn = Rth = 2k
+* Norton equivalent into RL=2k: V(21) = 4mA*(2k||2k) = 4V, I_RL = 2mA
+* expected: |I(Vsc)| = 4mA (=In), V(21) = 4V
+.control
+op
+print i(vsc) v(21)
+.endc
+.end

@@ -1,0 +1,20 @@
+Reciprocity theorem - interchange source and ammeter, current is unchanged
+* config 1: source at node 1, short-circuit ammeter Vam1 at node 3
+V1 1 0 DC 10
+R1 1 2 1k
+R2 2 0 2k
+R3 2 3 3k
+Vam1 3 0 DC 0
+* config 2: source moved to former output, ammeter Vam2 at former input
+V2 23 0 DC 10
+R3b 23 22 3k
+R2b 22 0 2k
+R1b 22 21 1k
+Vam2 21 0 DC 0
+* both currents = 20/11 mA = 1.818 mA
+* expected: |I(Vam1)| = |I(Vam2)| = 1.818mA
+.control
+op
+print i(vam1) i(vam2)
+.endc
+.end

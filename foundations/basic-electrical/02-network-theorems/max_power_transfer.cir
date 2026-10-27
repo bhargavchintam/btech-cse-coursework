@@ -1,0 +1,16 @@
+Maximum power transfer - P in RL vs RL for a Thevenin source
+* Vth=8V, Rth=2k; sweep the load RL and watch power peak at RL=Rth
+Vth 1 0 DC 8
+Rth 1 2 2k
+RL 2 3 2k
+Vsense 3 0 DC 0
+.control
+dc RL 200 6000 200
+let pload = v(2)*i(vsense)
+meas dc pmax   MAX pload
+meas dc rl_opt MAX_AT pload
+plot pload
+.endc
+* P = V(RL) * I(RL); peaks at RL = Rth = 2k
+* expected: Pmax = 8mW at RL = 2000 ohm
+.end

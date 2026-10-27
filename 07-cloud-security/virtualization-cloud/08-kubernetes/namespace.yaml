@@ -1,0 +1,7 @@
+# dev namespace
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: dev
+  labels:
+    env: dev

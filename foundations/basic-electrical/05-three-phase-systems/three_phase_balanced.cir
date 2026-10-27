@@ -1,0 +1,27 @@
+three phase balanced star load
+* Three sinusoidal sources 120 deg apart (RYB), star point at ground,
+* feeding a balanced star load Ra=Rb=Rc through a neutral node.
+* amplitude 325.27 V => 230 V rms per phase.
+
+Va 1 0 SIN(0 325.27 50 0 0 0)
+Vb 2 0 SIN(0 325.27 50 0 0 -120)
+Vc 3 0 SIN(0 325.27 50 0 0 -240)
+
+* balanced load: three equal resistors to the load neutral node 4
+Ra 1 4 10
+Rb 2 4 10
+Rc 3 4 10
+* neutral tie (balanced -> carries ~0 current)
+Rn 4 0 1m
+
+.tran 0.1m 40m
+.control
+run
+* rms of a phase voltage and of a line voltage over the run
+let vline = v(1) - v(2)
+meas tran vph_rms  RMS v(1)
+meas tran vline_rms RMS vline
+.endc
+
+* expected: phase rms V(1) = 230 V, line rms V(1,2) = 398.4 V
+.end

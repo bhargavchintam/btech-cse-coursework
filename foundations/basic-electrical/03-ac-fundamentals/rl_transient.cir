@@ -1,0 +1,14 @@
+RL current rise transient
+* series RL driven by a 0->10 V step, watch the current build up
+* R=100, L=100m  ->  tau = L/R = 1 ms, Ifinal = V/R = 0.1 A
+V1 1 0 PWL(0 0 1u 10 20m 10)
+R1 1 2 100
+L1 2 0 100m
+.tran 10u 5m
+.control
+run
+meas tran il_1tau FIND i(L1) AT=1m
+meas tran il_5tau FIND i(L1) AT=5m
+.endc
+* expected: tau = 1 ms; i(L1) = 0.0632 A at t=1*tau, 0.0993 A at t=5*tau (Ifinal = 0.1 A)
+.end

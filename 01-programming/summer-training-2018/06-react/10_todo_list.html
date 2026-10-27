@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>todo list</title>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
+
+    <script type="text/babel">
+        class TodoApp extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = { text: '', items: ['buy milk', 'read react'] };
+                this.handleChange = this.handleChange.bind(this);
+                this.addItem = this.addItem.bind(this);
+            }
+
+            handleChange(e) {
+                this.setState({ text: e.target.value });
+            }
+
+            addItem() {
+                if (this.state.text === '') {
+                    return;
+                }
+                const items = this.state.items.concat(this.state.text);
+                this.setState({ items: items, text: '' });
+            }
+
+            render() {
+                const list = this.state.items.map((item, i) =>
+                    <li key={i}>{item}</li>
+                );
+                return (
+                    <div>
+                        <h2>My Todo List</h2>
+                        <input type="text" value={this.state.text} onChange={this.handleChange} />
+                        <button onClick={this.addItem}>Add</button>
+                        <ul>{list}</ul>
+                    </div>
+                );
+            }
+        }
+
+        ReactDOM.render(<TodoApp />, document.getElementById('root'));
+    </script>
+</body>
+</html>

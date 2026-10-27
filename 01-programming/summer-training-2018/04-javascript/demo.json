@@ -1,0 +1,8 @@
+{
+  "students": [
+    { "name": "bhargav", "course": "cse" },
+    { "name": "rahul", "course": "ece" },
+    { "name": "priya", "course": "cse" },
+    { "name": "arjun", "course": "mech" }
+  ]
+}

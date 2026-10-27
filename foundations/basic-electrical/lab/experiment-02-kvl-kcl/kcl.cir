@@ -1,0 +1,15 @@
+KCL verification - two-loop network, sum of currents at node A
+* Same circuit as kvl.cir. Node 2 is node A. Currents in R1 and R3 feed R2.
+V1 1 0 DC 10
+R1 1 2 100
+R2 2 0 47
+R3 3 2 150
+V2 3 0 DC 6
+.control
+op
+print (v(1)-v(2))/100 (v(3)-v(2))/150 v(2)/47
+.endc
+* I_R1 = (v1-v2)/100, I_R3 = (v3-v2)/150 both flow INTO node 2
+* I_R2 = v2/47 flows OUT of node 2
+* expected: I_R1=63.10m  I_R3=15.40m  I_R2=78.50m   63.10 + 15.40 = 78.50 mA
+.end

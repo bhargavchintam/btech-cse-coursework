@@ -1,0 +1,25 @@
+Superposition - node-2 voltage from two sources
+* same topology as the mesh circuit: V1-R1-node2, R3 to gnd, R2-node2 to V2
+V1 1 0 DC 10
+R1 1 2 1k
+R3 2 0 2k
+R2 2 3 1k
+V2 3 0 DC 5
+.control
+* run 1: both sources active
+alter V1 dc = 10
+alter V2 dc = 5
+op
+print v(2)
+* run 2: V1 alone, V2 shorted
+alter V2 dc = 0
+op
+print v(2)
+* run 3: V2 alone, V1 shorted
+alter V1 dc = 0
+alter V2 dc = 5
+op
+print v(2)
+.endc
+* expected: both -> V(2)=6V, V1 alone -> 4V, V2 alone -> 2V, and 4+2 = 6
+.end

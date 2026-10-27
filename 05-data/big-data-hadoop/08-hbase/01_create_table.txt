@@ -1,0 +1,22 @@
+# hbase shell - create table with column families
+
+# start shell:  hbase shell
+
+# create table 'emp' with two column families
+create 'emp', 'personal', 'professional'
+
+# list all tables
+list
+
+# describe structure
+describe 'emp'
+
+# create table specifying max versions on a column family
+create 'student', {NAME => 'personal', VERSIONS => 3}, {NAME => 'academic', VERSIONS => 1}
+
+# create with more options - versions and TTL (seconds)
+create 'logs', {NAME => 'cf', VERSIONS => 5, TTL => 604800}
+
+# check table exists / enabled
+exists 'emp'
+is_enabled 'emp'
