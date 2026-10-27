@@ -24,7 +24,7 @@ text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",Helveti
 <rect class="accent" x="0" y="0" width="12" height="300"/>
 <g class="deco" stroke-width="2"><circle cx="1150" cy="300" r="70"/><circle cx="1150" cy="300" r="115"/><circle cx="1150" cy="300" r="160"/><circle cx="1150" cy="300" r="205"/></g>
 </g>
-<text class="muted" x="64" y="62" font-size="20" font-weight="600" letter-spacing=".3">REVA University · B.Tech CSE · 2018-2019</text>
+<text class="muted" x="64" y="62" font-size="20" font-weight="600" letter-spacing=".3">Coursework and labs · 2018-2019</text>
 <text class="fg" x="64" y="134" font-size="46" font-weight="700">Programming with Python and Labs</text>
 <text class="accent mono" x="64" y="180" font-size="20" font-weight="500">Python 3 · pure standard library</text>
 <g font-size="18" font-weight="500">
