@@ -151,7 +151,7 @@ Where the earlier phases pay off. Phase 3 (memory hierarchy), Phase 4 (concurren
 
 | Repo | Contents |
 |---|---|
-| [llm-inference](https://github.com/bhargavchintam/llm-inference) | 28 runnable NumPy programs — MHA/MQA/GQA, KV cache, RoPE, paged attention, continuous batching, speculative decoding, int8/int4 quantization (GPTQ/AWQ/SmoothQuant), samplers, and a toy engine — plus 8 deep-dive notes |
+| [llm-inference](https://github.com/bhargavchintam/llm-inference) | 29 runnable NumPy programs — MHA/MQA/GQA, KV cache, RoPE, paged attention, continuous batching, speculative decoding, int8/int4 quantization (GPTQ/AWQ/SmoothQuant), samplers, and a toy engine — plus 8 deep-dive notes |
 | [gpu-kernels](https://github.com/bhargavchintam/gpu-kernels) | 15 CUDA kernels and 10 Triton kernels (tiled GEMM, warp-shuffle reductions, fused softmax, flash attention), each with a NumPy reference that verifies the maths, plus 8 performance notes |
 
 Read the docs before the code in both. `gpu-kernels/docs/` covers the execution model, coalescing, bank conflicts, arithmetic intensity and the roofline model with real A100/H100 numbers; `llm-inference/docs/` does the same for KV-cache sizing, batching and the inference roofline.
